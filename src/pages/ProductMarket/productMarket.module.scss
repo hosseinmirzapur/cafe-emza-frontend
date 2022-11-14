@@ -1,0 +1,239 @@
+.product_market {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.loader {
+  height: 80vh;
+}
+.btn_sentences_2 {
+  height: 48px;
+  width: 130px;
+  border: none;
+  background: linear-gradient(77.63deg, #EEAF16 26.51%, rgba(247, 195, 24, 0.85) 50.43%, #EEAF16 73.07%);
+  border-radius: 8px;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 25px;
+  color: var(--black);
+}
+
+.card {
+  background: linear-gradient(89.74deg, rgba(249, 249, 249, 0.75) 0.21%, rgba(249, 249, 249, 0.5325) 86.64%);
+  border-radius: 16px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 65px;
+  padding: 50px;
+}
+
+.options {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  direction: rtl;
+}
+
+.option {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 40px;
+
+  img {
+    margin-left: 10px;
+  }
+}
+
+.top {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.container_bottom {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  align-items: center;
+}
+
+.right_bottom {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.counter {
+  direction: rtl;
+  text-align: right;
+  margin-left: 28px;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 25px;
+  color: var(--black);
+}
+
+.btn {
+  width: 208px;
+  height: 48px;
+  background: linear-gradient(77.63deg, #EEAF16 26.51%, rgba(247, 195, 24, 0.85) 50.43%, #EEAF16 73.07%);
+  border-radius: 8px;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 23px;
+  color: var(--black);
+  transition: color 0.7s;
+  border: none;
+}
+
+.btn:hover {
+  color: var(--white);
+}
+
+.name_option {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 23px;
+  color: var(--graydark);
+  direction: rtl;
+  text-align: right;
+  margin-left: 6px;
+}
+
+.description {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 23px;
+  color: var(--graydark);
+  direction: rtl;
+  text-align: right;
+}
+
+.right_top {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.name {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 28px;
+  text-align: right;
+  direction: rtl;
+  margin-left: 10px;
+}
+
+.price {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 34px;
+  color: var(--coffeelight);
+  direction: rtl;
+  text-align: left;
+}
+
+.container_image {
+  width: 45%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.info {
+  width: 55%;
+}
+
+.img_product {
+  border-radius: 16px;
+  width: calc(100% - 10%);
+}
+
+.inside {
+  position: relative;
+  width: 100%;
+  margin-top: 284px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.container_card {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  margin-bottom: 250px;
+}
+
+@media screen and (max-width: 1000px) {
+  .top {
+    flex-direction: column-reverse;
+  }
+  .right_top {
+    width: 100%;
+    justify-content: space-between;
+    margin-bottom: 8px;
+  }
+
+}
+
+@media screen and (max-width: 850px) {
+  .card {
+    flex-direction: column-reverse;
+  }
+  .info, .container_image {
+    width: 100%;
+  }
+  .container_image {
+    margin-bottom: 10px;
+  }
+  .container_card {
+    grid-template-columns: 1fr 1fr;
+    row-gap: 16px;
+  }
+  .options {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .container_card {
+    grid-template-columns: 1fr;
+    row-gap: 16px;
+  }
+  .inside {
+    margin-top: 80px;
+  }
+  .option {
+    margin-bottom: 8px;
+  }
+  .card {
+    padding: 8px;
+  }
+  .top {
+    margin-bottom: 10px;
+  }
+  .counter {
+    margin-left: 5px;
+  }
+  .btn {
+    width: 150px;
+  }
+}

@@ -1,0 +1,15 @@
+@font-face {
+    font-family: 'IRANYekanFN';
+    src: url('../fonts/IRANYekanFN.eot');
+    src: url('../fonts/IRANYekanFN.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/IRANYekanFN.woff2') format('woff2'),
+    url('../fonts/IRANYekanFN.woff') format('woff'),
+    url('../fonts/IRANYekanFN.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+* {
+    font-family: 'IRANYekanFN' !important;
+}

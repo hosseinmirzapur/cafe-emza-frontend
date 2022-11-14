@@ -1,0 +1,264 @@
+.select_frame_page {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+.root_check {
+  direction: rtl;
+  margin-bottom: 16px;
+}
+
+.label_check_box {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 23px;
+  margin-right: 8px;
+  color: var(--black);
+}
+.radio_wrapper {
+  width: 100%;
+}
+
+.radio_wrapper_frame {
+  //width: 100%;
+}
+
+.root {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  margin-right: 9.5px;
+  text-align: right;
+  direction: rtl;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 23px;
+  color: var(--graydark);
+  width: 100%;
+}
+
+.img_back {
+  position: absolute;
+  top: 142px;
+  left: -50px;
+  z-index: -1;
+}
+
+.english_text {
+  width: 100%;
+  direction: ltr;
+  text-align: justify;
+  color: var(--coffee);
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 23px;
+  margin-bottom: 16px;
+}
+
+.persian_text {
+  margin-bottom: 16px;
+  width: 100%;
+  direction: rtl;
+  text-align: justify;
+  color: var(--coffee);
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 23px;
+}
+
+.inside {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin-top: 278px;
+  margin-bottom: 284px;
+  direction: rtl;
+}
+
+.label {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.container_radio {
+  margin-bottom: 18px;
+  width: 100%;
+  //display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.right {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+
+  align-self: stretch;
+  padding: 20px;
+  width: 381px;
+  margin-left: 80px;
+  background: #F9F9F9;
+  border-radius: 16px;
+}
+
+.leaf {
+  top: -26px;
+  right: -27px;
+}
+
+.left {
+  width: 570px;
+  padding: 20px;
+  background: #F9F9F9;
+  border-radius: 16px;
+}
+
+.title {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 28px;
+  direction: rtl;
+  text-align: right;
+  color: var(--coffee);
+  margin-bottom: 40px;
+}
+
+.text_select_frame {
+  text-align: right;
+  direction: rtl;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 25px;
+  color: var(--coffee);
+  margin-bottom: 28px;
+}
+
+.right_section_button {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+
+  p {
+    direction: rtl;
+    text-align: right;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    color: var(--coffee);
+  }
+}
+
+.icon {
+  margin-left: 4px;
+}
+
+.shape {
+
+}
+
+.btn {
+  border: none;
+  width: 202px;
+  height: 40px;
+  background: linear-gradient(77.63deg, #EEAF16 26.51%, rgba(247, 195, 24, 0.85) 50.43%, #EEAF16 73.07%);
+  border-radius: 16px;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 23px;
+  color: var(--black);
+
+}
+
+.label_radio {
+  margin-right: 9px;
+  text-align: right;
+  direction: rtl;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 23px;
+  color: var(--graydark);
+}
+
+.section_button {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@media screen and (max-width: 972px) {
+  .right {
+    margin-left: 20px;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .inside {
+    flex-direction: column;
+    margin-top: 130px;
+  }
+  .right {
+    margin-bottom: 8px;
+    width: 100%;
+  }
+  .left {
+    width: 100%;
+    overflow: hidden;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .inside {
+    margin-top: 100px;
+  }
+  .container_sentences {
+    margin-top: 20px;
+  }
+  .img_back {
+    top: 120px;
+    width: 80%;
+  }
+  .title {
+    margin-bottom: 8px;
+  }
+  .text_select_frame {
+    margin-bottom: 8px;
+  }
+  .section_button {
+    flex-direction: column;
+  }
+  .right_section_button {
+    margin-bottom: 8px;
+  }
+  .shape {
+    width: 35px;
+    height: 35px;
+  }
+  .label_radio {
+    font-size: 12px;
+  }
+  .mantine-1lumg83 {
+    width: 100%;
+    justify-content: space-between;
+    overflow: hidden;
+  }
+  .select_frame_page {
+    overflow-: hidden;
+  }
+}

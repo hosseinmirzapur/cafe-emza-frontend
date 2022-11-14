@@ -1,0 +1,182 @@
+.club_page {
+  background: #FFFEFC;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.top_club {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  align-items: center;
+  margin-top: 135px;
+  margin-bottom: 35px;
+}
+
+.container_btn_top {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin: 10px;
+  div {
+    width: 227px;
+  }
+}
+
+.text_top {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 25px;
+  direction: rtl;
+  text-align: justify;
+  color: var(--black);
+  margin-bottom: 32px;
+}
+
+.title_top {
+  direction: rtl;
+  text-align: right;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 34px;
+  margin-bottom: 20px;
+  color: var(--coffee);
+}
+
+.left_top {
+  width: 50%;
+}
+
+.right_top {
+  width: 50%;
+}
+
+.button_club {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 200px;
+}
+
+.card {
+  width: 100%;
+  padding: 20px;
+  background: #F9F9F9;
+  border-radius: 16px;
+  direction: rtl;
+  text-align: right;
+}
+
+.title_card {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 28px;
+  color: var(--coffee);
+  margin-bottom: 20px;
+}
+
+.text_card {
+  direction: rtl;
+  text-align: justify;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--black);
+}
+
+.left_button {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.center_button {
+}
+
+.right_button {
+}
+
+.container_faqs {
+  margin-top: 24px;
+  width: 100%;
+  padding: 32px;
+  background: #F9F9F9;
+  border-radius: 16px;
+  z-index: 1;
+  margin-bottom: 140px;
+}
+
+.pic_button {
+}
+
+@media screen and(max-width: 1000px) {
+  .container_faqs {
+    margin-bottom: 50px !important;
+  }
+  .button_club {
+    flex-direction: column-reverse;
+  }
+  .pic_button {
+    width: 70%;
+  }
+  .center_button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+@media screen and (max-width: 861px) {
+  .card {
+    text-align: justify;
+  }
+  .top_club {
+    flex-direction: column-reverse;
+  }
+  .container_faqs {
+    margin-bottom: 100px !important;
+  }
+  .right_top {
+    width: 100%;
+    margin-bottom: 16px;
+
+    p {
+      text-align: justify;
+    }
+  }
+  .left_top {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    img {
+      width: 70%;
+    }
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .title_top {
+    font-size: 16px;
+  }
+  .text_top {
+    font-size: 14px;
+  }
+  .container_faqs {
+    padding: 16px;
+  }
+  .title_card {
+    font-size: 14px;
+  }
+}

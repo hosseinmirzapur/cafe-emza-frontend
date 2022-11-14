@@ -1,0 +1,38 @@
+.container_title {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+  z-index: -1;
+}
+.div_title{
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  position: relative;
+  height: fit-content;
+  width: fit-content;
+}
+.title{
+  position: absolute;
+  direction: rtl;
+  text-align: center;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 25px;
+  color: var(--white);
+  right: 76px;
+}
+.image_title{
+}
+@media screen and (max-width: 768px) {}
+@media screen and (max-width: 576px) {
+  .image_title{
+    width: 60%;
+  }
+  .title{
+    font-size: 10px;
+    right: 45px;
+  }
+}

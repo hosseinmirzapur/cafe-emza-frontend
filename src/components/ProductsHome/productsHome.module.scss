@@ -1,0 +1,14 @@
+.products_home {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+margin-bottom: 100px;
+}
+
+@media screen and (max-width:576px) {
+  .products_home{
+    margin-bottom: 0;
+  }
+}

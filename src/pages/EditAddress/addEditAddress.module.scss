@@ -1,0 +1,19 @@
+.add_address_page {
+  width: 100%;
+}
+.inside{
+  width: 100%;
+}
+.container_inputs {
+  direction: rtl;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+@media screen and (max-width: 576px){
+  .container_inputs{
+    grid-template-columns: 1fr;
+  }
+}

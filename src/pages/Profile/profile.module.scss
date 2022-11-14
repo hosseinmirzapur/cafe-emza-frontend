@@ -1,0 +1,39 @@
+.profile_page {
+  width: 100%;
+}
+
+.label_date {
+  position: absolute;
+  top: -11px;
+  right: 16px;
+  font-size: 12px;
+  color: #323133;
+}
+
+.inside_profile {
+  width: 100%;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.row {
+  direction: rtl;
+  gap: 28px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  //display: flex;
+  //justify-content: space-between;
+  align-items: center;
+
+}
+
+@media screen and (max-width: 576px) {
+  .row {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+}

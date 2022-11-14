@@ -1,0 +1,75 @@
+.dialog_edit {
+  position: relative;
+  width: 908px;
+  background: #F9F9F9;
+  border-radius: 16px;
+  z-index: 300000;
+  padding: 20px 32px;
+  box-shadow: 0 0 50px rgb(88 88 89 / 30%);
+}
+
+.div {
+  width: 100%;
+}
+
+.title {
+  margin-bottom: 28px;
+  text-align: center;
+  direction: rtl;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 28px;
+  color: var(--coffee);
+}
+
+.row {
+  direction: rtl;
+  margin-top: 20px;
+  margin-bottom: 103px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.container_submit {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.btn_submit {
+  border: none;
+  height: 40px;
+  width: 230px;
+  background: linear-gradient(77.63deg, #EEAF16 26.51%, rgba(247, 195, 24, 0.85) 50.43%, #EEAF16 73.07%);
+  border-radius: 16px;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 25px;
+  color: var(--black);
+}
+
+@media screen and (max-width: 950px) {
+  .dialog_edit {
+    width: 95%;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .row {
+    grid-template-columns: 1fr;
+    margin-bottom: 30px;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .dialog_edit{
+    padding: 10px 16px;
+  }
+  .btn_submit {
+    width: 100% !important;
+  }
+}

@@ -1,0 +1,16 @@
+.best_section {
+  position: relative;
+  margin-top: 100px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+
+}
+@media screen and(max-width: 576px){
+  .best_section{
+    margin-top: 10px;
+  }
+
+}

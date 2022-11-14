@@ -1,0 +1,106 @@
+.collection_shop {
+  width: 100%;
+  margin-bottom: 24px;
+  background: #F9F9F9;
+  border-radius: 16px;
+  padding: 20px 28px;
+}
+
+.container_cards {
+  width: 100%;
+  display: grid;
+}
+
+.label {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 23px;
+  text-align: right;
+  direction: rtl;
+  color: var(--coffeelight);
+  margin-right: 10px;
+  margin-left: 8px;
+}
+.container_radio{
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 20px;
+}
+.radio_wrapper{
+  display: flex;
+  direction: rtl;
+  justify-content: flex-end;
+  width: 100%;
+}
+.radio_wrapper2{
+  display: flex;
+  direction: rtl;
+  justify-content: flex-end;
+}
+.gray_dark{
+  color: var(--graydark);
+}
+.radio {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  p{
+    margin-left: 8px;
+    margin-right: 10px;
+  }
+}
+
+.card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+
+  img {
+    max-height: 120px;
+    max-width: 201px;
+  }
+
+  span {
+    padding: 4px 8px;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #FCEDC0;
+    border-radius: 8px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 18px;
+  }
+}
+.root{}
+.title {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 25px;
+  color: var(--coffee);
+  text-align: right;
+  direction: rtl;
+  margin-bottom: 28px;
+}
+@media screen and (max-width: 576px){
+  .label{
+    font-size: 11px;
+    margin-left: 5px;
+    margin-right: 0;
+    p{
+      margin-left: 0;
+      margin-right: 3px;
+    }
+  }
+  .collection_shop{
+    margin-bottom: 0;
+  }
+}

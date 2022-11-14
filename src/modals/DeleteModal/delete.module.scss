@@ -1,0 +1,83 @@
+.dialog_delete {
+  position: relative;
+  width: 572px;
+  max-width: 572px;
+  background: #FFFFFF;
+  border-radius: 16px;
+  z-index: 300000;
+  padding: 20px 32px;
+  box-shadow: 0 0 50px rgb(88 88 89 / 30%);
+}
+
+.title {
+  direction: rtl;
+  text-align: center;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 28px;
+  color: var(--coffee);
+  margin-top: 46px;
+  margin-bottom: 12px;
+}
+
+.container_btn {
+  margin-top: 32px;
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.cancel_btn {
+  width: 184px;
+  height: 40px;
+  background: #F9F9F9;
+  border-radius: 16px;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 23px;
+  color: var(--black);
+  border: none;
+}
+
+.confirm_btn {
+  border: none;
+  width: 184px;
+  height: 40px;
+  background: #E0B004;
+  border-radius: 16px;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 23px;
+  color: var(--black);
+}
+
+.img {
+  width: 100%;
+}
+
+@media screen and (max-width: 612px) {
+  .dialog_delete {
+    width: 95vw;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .img {
+    width: 80vw;
+  }
+  .title {
+    font-size: 16px;
+    margin-top: 16px;
+    margin-bottom: 6px;
+  }
+  .container_btn {
+    button {
+      width: 140px;
+      height: 35px;
+    }
+  }
+}

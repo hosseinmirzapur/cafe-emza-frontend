@@ -1,0 +1,23 @@
+.home {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  overflow: hidden;
+}
+
+.inside_home {
+  margin-top: 136px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+@media screen and(max-width: 576px) {
+  .inside_home {
+    margin-top: 65px;
+  }
+}

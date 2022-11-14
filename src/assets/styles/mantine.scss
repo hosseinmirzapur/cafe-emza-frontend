@@ -1,0 +1,100 @@
+// start checkBox
+
+.root_check_box {
+  direction: rtl;
+  margin-bottom: 16px;
+}
+
+.root_check_box:last-child {
+  //margin-bottom: 0;
+}
+
+.label_check_box {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 18px;
+  margin-right: 8px;
+  color: var(--coffee);
+}
+
+.input_check_box {
+  border-radius: 50%;
+  background: #FFFFFF;
+  border: 1px solid #56311F;
+}
+
+.input_check_box:checked {
+  background: #FFFFFF;
+  border: 1px solid #56311F;
+}
+
+.icon_check_box {
+  color: var(--coffee);
+}
+
+// end checkBox
+
+// start radio
+.label_radio {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  margin-right: 9.5px;
+  text-align: right;
+  direction: rtl;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 23px;
+  color: var(--graydark);
+}
+
+//input
+.input_radio {
+  border-color: var(--coffeelight);
+  //direction: rtl;
+//justify-content: space-between;
+}
+
+.input_radio:checked {
+  border-color: var(--coffeelight);
+  background: transparent;
+}
+
+//input and label
+.radio_wrapper {
+  //display: flex;
+  //flex-direction: row;
+  //margin-bottom: 16px;
+  //justify-content: flex-end;
+  //width: 100%;
+  //justify-content: space-between !important;
+
+  direction: rtl;
+}
+
+.icon_radio {
+  color: var(--coffeelight);
+}
+.mantine-1lumg83{
+  //justify-content: space-between;
+}
+//container group
+.inner_radio {
+  //justify-content: space-between !important;
+}
+
+.mantine-RadioGroup-root{
+  //width: 100%;
+}
+.mantine-1lumg83{
+  width: 100% !important;
+  justify-content: space-between;
+}
+// end radio
+@media screen and (max-width: 576px) {
+  .label_radio{
+    font-size: 8px;
+    margin-right: 2px;
+  }
+}

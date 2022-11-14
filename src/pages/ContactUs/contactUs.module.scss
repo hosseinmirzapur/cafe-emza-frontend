@@ -1,0 +1,105 @@
+.contact_us_page {
+  background: #FFFEFC;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.inside_contact_us {
+  margin-bottom: 70px;
+  width: 100%;
+  display: flex;
+  //flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 200px;
+}
+
+.text {
+  direction: rtl;
+  text-align: justify;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 23px;
+  color: var(--black);
+  opacity: 0.8;
+}
+
+.title {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 34px;
+  color: var(--coffee);
+  margin-bottom: 20px;
+  text-align: right;
+  direction: rtl;
+}
+
+.left {
+  width: 50%;
+}
+
+.right {
+  width: 50%;
+}
+
+.card {
+  width: 100%;
+  position: relative;
+  padding: 24px;
+  background: #F9F9F9;
+  border-radius: 16px;
+
+}
+
+.text {
+  p {
+
+    text-align: justify;
+    direction: rtl;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 23px;
+    opacity: 0.8;
+  }
+
+}
+
+@media screen and (max-width: 768px) {
+  .inside_contact_us {
+    flex-direction: column-reverse;
+
+  }
+  .card {
+    width: 95%;
+  }
+  .right {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .inside_contact_us{
+    margin-top: 80px;
+  }
+  .left {
+    margin-top: 16px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    img {
+      width: 50%;
+    }
+  }
+}
+
+@media screen and (max-width: 576px) {
+}

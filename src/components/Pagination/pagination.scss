@@ -1,0 +1,16 @@
+.swiper-pagination-bullet {
+  width: 12px;
+  height: 12px;
+  background-color: var(--coffeegray) !important;
+  opacity: 0.7;
+  transition: background-color 0.3s, opacity 0.3s, transform 0.3s;
+  margin: 5px !important;
+  z-index: 10000 !important;
+}
+
+.swiper-pagination-bullet-active {
+  z-index: 10000 !important;
+  background-color: var(--coffee) !important;
+  opacity: 1;
+  transform: scale(1.33);
+}

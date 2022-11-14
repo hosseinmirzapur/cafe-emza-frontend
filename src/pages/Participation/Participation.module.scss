@@ -1,0 +1,72 @@
+.participation_page {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.inside {
+  position: relative;
+  margin-top: 160px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.container_submit {
+  width: 100%;
+  margin-top: 132px;
+}
+.btn_submit {
+  width: 198px !important;
+}
+.pic_back {
+  position: absolute;
+  left: 0;
+  top: 120px;
+  z-index: -1;
+}
+.card {
+  width: 908px;
+  background: #F9F9F9;
+  border-radius: 16px;
+  padding: 20px 28px;
+  margin-bottom: 230px;
+  margin-top: 28px;
+}
+.inside_card {
+  width: 100%;
+  direction: rtl;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 28px;
+  //row-gap: 28px;
+}
+@media screen and (max-width: 940px) {
+  .card {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 576px) {
+  .pic_back{
+    width: 50%;
+  }
+  .inside{
+    margin-top: 70px;
+  }
+  .inside_card {
+    grid-template-columns: 1fr;
+  }
+  .btn_submit {
+    width: 100% !important;
+  }
+  .container_submit{
+    margin-top: 10px;
+  }
+  .container_up {
+    flex-direction: column;
+
+    .container_btn_upload {
+      width: 100%;
+    }
+  }
+}

@@ -1,0 +1,27 @@
+.container_main_layout{
+  position: relative;
+  width: 100%;
+  height: fit-content;
+}
+.image_bullets_coffee{
+  position: absolute;
+  right: 0;
+  bottom: 32px;
+  z-index: 0;
+}
+.pic_back{
+  position: absolute;
+  top:150px;
+  left: -10px;
+  height: 50%;
+  z-index: -1000;
+}
+@media screen and (max-width: 576px) {
+
+  .image_bullets_coffee{
+    width: 50%;
+  }
+  .pic_back{
+    top: 100px;
+  }
+}

@@ -1,0 +1,145 @@
+.emza_page {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.inside {
+  position: relative;
+  margin-top: 168px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.selector {
+  position: relative;
+  width: 100%;
+  background: #F9F9F9;
+  border-radius: 16px;
+  padding: 8px 4px;
+  margin-bottom: 40px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center
+}
+.arrow_left{
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 10px;
+}
+.arrow_right{
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 10px;
+}
+.active {
+}
+
+.item_select {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 16px;
+  border-radius: 16px;
+
+  img {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+.item_select.active {
+  background: #FFFFFF;
+}
+
+.item_select:hover {
+  cursor: pointer;
+
+  .text_item {
+    color: var(--coffeelight);
+  }
+}
+
+.text_item {
+  direction: rtl;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 23px;
+  color: var(--black);
+  transition: color 0.5s;
+  margin-right: 8px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: absolute;
+  z-index: 99999999999999999999;
+}
+
+.arrow_right {
+  position: absolute;
+  top: -33px;
+  right: 0;
+}
+.arrow_left {
+  position: absolute;
+  top:-33px;
+  left: 0;
+}
+.container_card {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 50px;
+  margin-bottom: 199px;
+}
+
+@media screen and (max-width: 800px) {
+  .text_item {
+    margin-right: 4px;
+    font-size: 12px;
+  }
+  .item_select {
+    padding: 5px 8px;
+  }
+  .container_card {
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .selector {
+    //padding: 8px 0;
+
+  }
+  .item_select {
+    //margin-bottom: 8px;
+  }
+}
+
+@media screen and (max-width: 578px) {
+  .inside {
+    margin-top: 70px;
+  }
+  .container_card{
+    gap: 5px;
+  }
+  .selector{
+    padding-right: 8px;
+    padding-left: 8px;
+  }
+}

@@ -1,0 +1,52 @@
+.containerLoading {
+  margin-top: 150px;
+  width: 100%;
+  height: 30vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  p {
+    text-align: center;
+    direction: rtl;
+    margin-top: 20px;
+    font-size: 14px;
+  }
+}
+
+.container_image_loading {
+  border-radius: 16px;
+  overflow: hidden;
+
+  img {
+    width: 40vw;
+  }
+}
+
+.containerLoading.fullScrean {
+  margin-top: 0;
+  background: black;
+}
+
+.fullScrean {
+  position: fixed;
+  height: 100%;
+  z-index: 1000000000;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(110, 141, 233, 0.5);
+
+  p {
+    color: white;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .containerLoading {
+    margin-top: 90px;
+  }
+
+}

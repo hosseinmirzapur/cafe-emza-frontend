@@ -1,0 +1,14 @@
+.ringLoading {
+  width: 100%;
+  //height: 30vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  p {
+    text-align: center;
+    direction: rtl;
+    margin-top: 20px;
+    font-size: 14px;
+  }
+}

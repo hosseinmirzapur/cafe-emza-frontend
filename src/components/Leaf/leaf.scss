@@ -1,0 +1,24 @@
+.image_leaf {
+  position: absolute;
+  top: 0;
+  right: -50px;
+  animation-name: rotate_image;
+  animation-duration: 4s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-fill-mode: both;
+  transform-origin: center !important;
+}
+
+@keyframes rotate_image {
+  50% {
+    transform-origin: center;
+    transform: rotate(-20deg);
+
+  }
+  100% {
+    transform-origin: center;
+    transform: rotate(0deg);
+  }
+}

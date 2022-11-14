@@ -1,0 +1,75 @@
+.item {
+  width: 100%;
+  padding: 20px;
+  background: #FFFFFF;
+  border-radius: 16px;
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+
+.item:last-child {
+  margin-bottom: 0;
+}
+
+.persian_text {
+  direction: rtl;
+  text-align: justify;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 23px;
+  color: black;
+}
+
+.container_btn {
+  width: 100%;
+  margin-top: 20px;
+  height: 35px;
+  position: relative;
+}
+
+.btn {
+  position: absolute;
+  left: 0;
+  background: linear-gradient(77.63deg, #EEAF16 26.51%, rgba(247, 195, 24, 0.85) 50.43%, #EEAF16 73.07%);
+  border-radius: 16px;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--black);
+  border: none;
+  height: 35px;
+  width: 128px;
+  transition: all 1s;
+}
+
+.active {
+}
+
+.btn.active {
+  //left: unset;
+  left: calc(100% - 120px);
+}
+
+.english_text {
+  direction: ltr;
+  text-align: justify;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 23px;
+  color: black;
+}
+
+@media screen and (max-width: 576px) {
+  .item {
+    padding: 10px;
+  }
+  .persian_text {
+    font-size: 13px;
+  }
+  .english_text {
+    font-size: 13px;
+  }
+}

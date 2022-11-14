@@ -1,0 +1,110 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 64px;
+}
+
+//.image{
+//  img{
+//    width: 296px;
+//    height: 209px;
+//    object-fit: cover;
+//  }
+//}
+.card.active {
+  z-index: 110;
+
+  .name {
+    opacity: 1;
+    //color: green !important;
+  }
+
+  > .image {
+    opacity: 1;
+    transform: scale(1);
+
+    &::before {
+      opacity: 0.25;
+    }
+
+    > img {
+      opacity: 1;
+    }
+  }
+
+
+}
+
+.image {
+  border-radius: 16px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0.8;
+  //aspect-ratio: 1/1.21;
+  margin-bottom: 20px;
+  transform: scale(0.85);
+  transition: transform 0.5s;
+
+  &::before {
+    content: "";
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    width: 100%;
+    aspect-ratio: 1/1;
+    background-color: var(green);
+    border-radius: 50%;
+    opacity: 0.1;
+    transition: opacity 0.5s;
+  }
+  &::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    width: 100%;
+    aspect-ratio: 1/1;
+    background-color: var(green);
+    border-radius: 50%;
+    opacity: 1;
+    transition: opacity 0.5s;
+  }
+
+  > img {
+    //width: 69%;
+    aspect-ratio: 1.41/1;
+    border-radius: 16px;
+    opacity: 0.8;
+    transition: opacity 0.5s;
+    width: 296px;
+    height: 209px;
+    //width: 100%;
+    object-fit: cover;
+  }
+}
+
+.name {
+  text-align: center;
+  direction: rtl;
+  margin-top: 20px;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 25px;
+  color: var(--coffee);
+  opacity: 0.8;
+}
+@media screen and(max-width: 576px) {
+  .image{
+    img{
+      aspect-ratio: 1.41/1;
+      width: 100%;
+    }
+  }
+}

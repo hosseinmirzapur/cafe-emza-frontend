@@ -1,0 +1,132 @@
+.sentences_page {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+}
+
+.card_sentence_page {
+  cursor: pointer;
+  height: 212px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 16px;
+  padding: 12px;
+  position: relative;
+  margin-bottom: 12px;
+  overflow: hidden;
+}
+
+.img_sentence {
+  position: absolute;
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+//.card_sentence_page::after {
+//  content: "";
+//  flex: auto;
+//}
+.card_sentence_page:last-child {
+  //min-width: auto !important;
+  min-width: max-content;
+  flex-grow: 1;
+  align-self: stretch;
+  justify-self: flex-start;
+}
+
+.row1 {
+  display: grid;
+  grid-template-columns: 35% 40% 25%;
+  column-gap: 43px;
+}
+
+.row2 {
+  display: grid;
+  grid-template-columns: 25% 25% 25% 25%;
+  column-gap: 38px;
+}
+
+.row3 {
+  display: grid;
+  grid-template-columns: 25% 40% 35%;
+  column-gap: 43px;
+}
+
+.info_sentence_card {
+  position: absolute;
+  right: 12px;
+  bottom: 12px;
+  background: rgba(255, 254, 252, 0.3);
+  backdrop-filter: blur(16px);
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px;
+
+  p {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 23px;
+    text-align: center;
+    direction: rtl;
+    color: var(--coffee);
+  }
+
+  p:first-child {
+    margin-bottom: 12px;
+  }
+
+}
+
+.inside_sentences_page {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 160px;
+}
+
+.small {
+  width: 23%;
+}
+
+.medium {
+  width: 33%;
+}
+
+.large {
+  width: 38%;
+}
+
+.container_sentences {
+  width: 100%;
+  margin-top: 40px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  justify-content: space-between;
+}
+
+@media screen and (max-width: 756px) {
+  .card_sentence_page {
+    width: 48%;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .inside_sentences_page {
+    margin-top: 70px;
+  }
+  .card_sentence_page {
+    width: 100%;
+  }
+}

@@ -1,0 +1,73 @@
+
+.container_input_cafe {
+  width: 100%;
+  position: relative;
+}
+
+.textAlignLeft {
+  text-align: left !important;
+  direction: ltr !important;
+}
+
+.input_cafe {
+  background: #FFFFFF;
+  border-radius: 16px;
+  width: 100%;
+  min-height: 40px;
+  outline: none;
+  padding: 0 10px;
+  text-align: right;
+  transition: all 0.3s;
+  border: none;
+  resize: none;
+  direction: rtl;
+}
+
+.input_cafe:focus ~ .labelInput,
+.input_cafe:not(:placeholder-shown).input_cafe:not(:focus) ~ .labelInput {
+  top: -11px;
+  right: 16px;
+  font-size: 12px;
+  color: #323133;
+}
+
+.labelInput {
+  position: absolute;
+  top: 10px;
+  font-size: 16px;
+  right: 16px;
+  color: #7D7B7B;
+  cursor: text;
+  transition: all 200ms ease-in;
+}
+
+.labelTextArea {
+  position: absolute;
+  top: 10px;
+  font-size: 16px;
+  right: 16px;
+  color: #7D7B7B;
+  cursor: text;
+  transition: all 200ms ease-in;
+}
+.textarea_cafe {
+  background: #FFFFFF;
+  border-radius: 16px;
+  width: 100%;
+  min-height: 40px;
+  outline: none;
+  //padding: 0 10px;
+  text-align: right;
+  transition: all 0.3s;
+  border: none;
+  resize: none;
+  direction: rtl;
+  padding: 8px;
+}
+.textarea_cafe:focus ~ .labelTextArea,
+.textarea_cafe:not(:placeholder-shown).textarea_cafe:not(:focus) ~ .labelTextArea {
+  top: -11px;
+  right: 16px;
+  font-size: 12px;
+  color: #323133;
+}

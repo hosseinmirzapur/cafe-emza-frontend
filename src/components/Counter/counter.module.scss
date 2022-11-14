@@ -1,0 +1,24 @@
+.counter {
+  min-width: 115px;
+  height: 48px;
+  background: #FFFFFF;
+  border-radius: 16px;
+  padding: 8px;
+  display: flex;
+  justify-content: space-between !important;
+  align-items: center !important;
+}
+
+.text {
+  text-align: center;
+  direction: rtl;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 25px;
+  color: var(--black);
+}
+
+.img {
+  cursor: pointer;
+}

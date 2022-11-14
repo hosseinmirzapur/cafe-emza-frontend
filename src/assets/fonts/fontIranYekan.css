@@ -1,0 +1,16 @@
+@font-face {
+    font-family: 'IRANYekanFN';
+    /*src: url('IRANYekanFN.eot');*/
+    src: url('../public/assets/iranYekan/IRANYekanFN.eot');
+    src: url('../public/assets/iranYekan/IRANYekanFN.eot?#iefix') format('embedded-opentype'),
+    url('../public/assets/iranYekan/IRANYekanFN.woff2') format('woff2'),
+    url('../public/assets/iranYekan/IRANYekanFN.woff') format('woff'),
+    url('../public/assets/iranYekan/IRANYekanFN.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+* {
+    font-family: 'IRANYekanFN' !important;
+}
