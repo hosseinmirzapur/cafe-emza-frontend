@@ -29,10 +29,13 @@ const Footer = () => {
 
     //functions
     const handleGoTO = (path) => {
-        scrollToTopFunction()
-        // console.log("hiiii")
+        setTimeout(() => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            })
+        }, 1000)
         navigate(path)
-        scrollToTopFunction()
     }
     return (
         <footer className={styles.footer}>
@@ -82,7 +85,7 @@ const Footer = () => {
                                         className={styles.link}
                                         onClick={() => {
                                             if (login) {
-                                                navigate(`/market/${subMenu?.category_id}`)
+                                                handleGoTO(`/market/${subMenu?.category_id}`)
                                             } else {
                                                 toast.warning('برای مشاهده محصولات فروشگاهی ابتدا باید وارد حساب کاربری خود شوید')
                                             }
@@ -105,11 +108,11 @@ const Footer = () => {
                         </a>
                         : null}
 
-                    {/*{options?.header?.branches[0]?.instagram !== null ?*/}
-                    {/*    <a href={options?.header?.branches[0]?.instagram} target="_blank">*/}
-                    {/*        <img className={styles.icons} src={instagram} alt=""/>*/}
-                    {/*    </a>*/}
-                    {/*    : null}*/}
+                    {options?.header?.branches[0]?.instagram !== null ?
+                        <a href={options?.header?.branches[0]?.instagram} target="_blank">
+                            <img className={styles.icons} src={instagram} alt=""/>
+                        </a>
+                        : null}
                     {options?.header?.branches[0]?.youtube !== null ?
                         <a href={options?.header?.branches[0]?.youtube} target="_blank">
                             <img className={styles.icons} src={youtube} alt=""/>

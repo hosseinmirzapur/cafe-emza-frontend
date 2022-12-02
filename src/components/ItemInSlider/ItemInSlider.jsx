@@ -13,6 +13,12 @@ const ItemInSlider = ({product}) => {
 
     const handleClickCard = async () => {
         if (login) {
+            setTimeout(() => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                })
+            }, 1000)
             navigate(`/product_market/${product.id}`)
         } else {
             toast.warning('برای افزودن این محصول به سبد خرید باید ابتدا وارد حساب کاربری خود شوید')

@@ -1,6 +1,5 @@
 import styles from './productMarket.module.scss'
 import ChangeTitlePage from "../../helper/ChangeTitle";
-import image from './bag.jpg'
 import {goTopAbove, numberWithCommas, preventDragHandler} from "../../helper/functions";
 import ReactStars from "react-rating-stars-component";
 import {Spinner} from "reactstrap";
@@ -10,8 +9,6 @@ import {getProduct, rateProduct} from "../../services/productService";
 import handleErrors from "../../helper/handleErrors";
 import home from './home.svg'
 import seed from './seed.svg'
-import maker from './maker.svg'
-import press from './press.svg'
 import Counter from "../../components/Counter/Counter";
 import {useDispatch, useSelector} from "react-redux";
 import Loading from "../../components/Loading/Loading";
@@ -61,6 +58,7 @@ const ProductMarket = () => {
         },
     ]
     const filterOption = data.filter(item => item.description !== '')
+
     //functions
     const initData = async () => {
         setLoading(true)
@@ -122,6 +120,18 @@ const ProductMarket = () => {
             toast.warning("برای انجام خرید ابتدا باید وارد حساب کاربری خود شوید")
         }
     }
+    const handleGoSentences = () => {
+        const objBuy = {
+            product_id: params?.id,
+            quantity: count,
+            sentence_id: null,
+            sentence_language: null,
+            frame: null,
+            to: null,
+            from: null
+        }
+        navigate('/sentences', {state: objBuy})
+    }
 
     useEffect(() => {
         initData()
@@ -165,10 +175,10 @@ const ProductMarket = () => {
                                     ))}
                                 </div>
                                 <div className={styles.container_bottom}>
-                                    {/*<button disabled={isDisable}*/}
-                                    {/*        onClick={() => handleGoSentences()}*/}
-                                    {/*        className={styles.btn_sentences_2}>انتخاب جمله*/}
-                                    {/*</button>*/}
+                                    <button disabled={isDisable}
+                                            onClick={() => handleGoSentences()}
+                                            className={styles.btn_sentences_2}>انتخاب جمله
+                                    </button>
                                     <button disabled={isDisable} onClick={() => handleBuy()} className={styles.btn}
                                             type="submit">
                                         {

@@ -35,8 +35,7 @@ const ProductCard = ({product}) => {
             <div className={styles.container_center}>
                 <ReactStars
                     count={5}
-                    // value={product?.rate_avg !== null ? parseInt(product?.rate_avg) : 0}
-                    value={product?.rate_avg}
+                    value={product?.rate_avg !== null ? parseFloat(product?.rate_avg) : 0}
                     edit={false}
                     size={18}
                     activeColor="var(--emza)"

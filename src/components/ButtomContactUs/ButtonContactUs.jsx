@@ -116,7 +116,7 @@ const ButtonContactUs = () => {
                                         if (e.key === 'Enter') {
                                             handleSubmit()
                                         }
-                                    }}>
+                                    }} className={'d-flex flex-column gap-1'}>
                                         <p className={styles.title_card}>ارتباط با امور مشتریان</p>
                                         <p className={styles.title_card1}>همچنین شما می توانید شکایات، انتقادات و
                                             پیشنهادات سازنده خود را از این طریق با ما در میان بگذارید.</p>
@@ -125,10 +125,13 @@ const ButtonContactUs = () => {
                                                        handleBlur={() => setFieldTouched('full_name')} marginBottom={18}
                                                        value={values.full_name}/>
                                         <ErrorMessage error={errors.full_name} visible={touched.full_name}/>
-                                        <EmzaCafeInput placeholder='ایمیل - وارد کردن این مورد اختیاریست' textAlignLeft={true}
+                                        <EmzaCafeInput placeholder='ایمیل (اختیاری)'
+                                                       textAlignLeft={true}
                                                        handleChange={handleChange('email')}
-                                                       handleBlur={() => setFieldTouched('email')} marginBottom={18}
+                                                       handleBlur={() => setFieldTouched('email')}
                                                        value={values.email} type='email'/>
+                                        <p className={styles.email_section}>* در صورت وارد نمودن ایمیل، میتوانید از
+                                            نتیجه بررسی پیام خود مطلع شوید</p>
                                         <ErrorMessage error={errors.email} visible={touched.email}/>
 
                                         <EmzaCafeInput value={values.phone_number} marginBottom={16}
@@ -180,9 +183,9 @@ const ButtonContactUs = () => {
                             data={branches} onChange={set_branche_id}
                         />
                         {branche_id == -1 ? null : <div className={styles.container_icons}>
-                            {/*{branche?.instagram ?*/}
-                            {/*    <a href={branche?.instagram} target="_blank"> <img src={instagram}*/}
-                            {/*                                                       alt=""/></a> : null}*/}
+                            {branche?.instagram ?
+                                <a href={branche?.instagram} target="_blank"> <img src={instagram}
+                                                                                   alt=""/></a> : null}
                             {branche?.whatsapp ?
                                 <a href={branche?.whatsapp} target="_blank"> <img src={whatsapp}
                                                                                   alt=""/></a> : null}
