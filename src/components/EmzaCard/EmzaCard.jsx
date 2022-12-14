@@ -10,16 +10,18 @@ const EmzaCard = ({product}) => {
     const navigate = useNavigate()
     const login = useSelector(state => state.login)
     return (
-        <div className={styles.card} onClick={() => navigate(`/product_details/${product.id}`, {state: product})}>
+        <div key={product.id} className={styles.card}
+             onClick={() => navigate(`/product_details/${product.id}`, {state: product})}>
             <div className={styles.container_image}>
-                <img onDragStart={e=>preventDragHandler(e)} src={product.image} className={styles.cup} onContextMenu={()=> {
-                    return false
-                }} alt=""/>
+                <img onDragStart={e => preventDragHandler(e)} src={product.image} className={styles.cup}
+                     onContextMenu={() => {
+                         return false
+                     }} alt=""/>
             </div>
             <div className={styles.container_top}>
                 <div className={styles.left_top}>
                     <p className={styles.rate}>{product.rate_avg !== null ? product.rate_avg : 0}</p>
-                    <img onDragStart={e=>preventDragHandler(e)} src={rateIcon} alt=""/>
+                    <img onDragStart={e => preventDragHandler(e)} src={rateIcon} alt=""/>
                 </div>
                 <p className={styles.name}>{product.name}</p>
             </div>

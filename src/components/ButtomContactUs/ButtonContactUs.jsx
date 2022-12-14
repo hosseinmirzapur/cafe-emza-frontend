@@ -40,7 +40,7 @@ const initialValues =
     }
 
 
-const ButtonContactUs = () => {
+const ButtonContactUs = ({settings}) => {
 
     //varible
     const login = useSelector(state => state.login)
@@ -183,17 +183,17 @@ const ButtonContactUs = () => {
                             data={branches} onChange={set_branche_id}
                         />
                         {branche_id == -1 ? null : <div className={styles.container_icons}>
-                            {branche?.instagram ?
-                                <a href={branche?.instagram} target="_blank"> <img src={instagram}
+                            {settings?.instagram ?
+                                <a href={settings?.instagram} target="_blank"> <img src={instagram}
                                                                                    alt=""/></a> : null}
                             {branche?.whatsapp ?
                                 <a href={branche?.whatsapp} target="_blank"> <img src={whatsapp}
                                                                                   alt=""/></a> : null}
-                            {branche?.youtube ?
-                                <a href={branche?.youtube} target="_blank"> <img src={youtube}
+                            {settings?.youtube ?
+                                <a href={settings?.youtube} target="_blank"> <img src={youtube}
                                                                                  alt=""/></a> : null}
-                            {branche?.twitter ?
-                                <a href={branche?.twitter} target="_blank"> <img src={twitter}
+                            {settings?.twitter ?
+                                <a href={settings?.twitter} target="_blank"> <img src={twitter}
                                                                                  alt=""/></a> : null}
                             {/*{branche?.telegram ?*/}
                             {/*    <a href={branche?.telegram} target="_blank"> <img src={iconTelegram}*/}

@@ -41,7 +41,7 @@ const Header = () => {
         navigate('/emza')
     }
     const fullname = () => {
-        return `${user.firstname} ${user.lastname}`
+        return user.firstname ? `${user.firstname} ${user.lastname}` : 'در حال بارگذاری...'
     }
     const initData = async () => {
         await dispatch(setOptions())
@@ -64,7 +64,7 @@ const Header = () => {
                             <div className={styles.btn_header}>
                                 <div>
                                     <img src={profileImage} alt="image basket"/>
-                                    <p>{login ? fullname() : 'ورود/ثبت نام'}</p>
+                                    <p className={styles.login_signup}>{login ? fullname() : 'ورود/ثبت نام'}</p>
                                 </div>
                             </div>
                         </Link>
@@ -88,19 +88,28 @@ const Header = () => {
                     <div className={styles.right_header}>
                         <div className={styles.container_menu_header}>
                             <div className={styles.div_menu}>
+                                <Link to={'/'} className={styles.text_menu}>
+                                    صفحه اصلی
+                                </Link>
+                            </div>
+                            <div className={styles.div_menu}>
                                 <p onClick={() => setBranches(true)} className={styles.text_menu}>کافه امضا</p>
                                 {showBranches &&
-                                    <div ref={refBranches} className={styles.menu_branch + ' ' + styles.opacity_menu}>
-                                        {options?.header?.branches.map((item, index) => (
-                                            <p key={index} onClick={async () => {
-                                                if (login) {
+                                <div ref={refBranches} className={styles.menu_branch + ' ' + styles.opacity_menu}>
+                                    {options?.header?.branches.map((item, index) => (
+                                        <p className={item.active ? '' : 'opacity-25'} key={index} onClick={async () => {
+                                            if (login) {
+                                                if (item.active) {
                                                     await handleBranches(item?.id)
                                                 } else {
-                                                    toast.warning('برای مشاهده محصولات ابتده وارد حساب کاربری خود شوید')
+                                                    toast.info('در حال حاضر این شعبه غیر فعال است.')
                                                 }
-                                            }}>{item?.name}</p>
-                                        ))}
-                                    </div>}
+                                            } else {
+                                                toast.warning('برای مشاهده محصولات ابتده وارد حساب کاربری خود شوید')
+                                            }
+                                        }}>{item?.name}</p>
+                                    ))}
+                                </div>}
                             </div>
                             <div className={styles.div_menu}>
                                 <p onClick={() => setMarket(true)} className={styles.text_menu}>فروشگاه آنلاین</p>
@@ -117,15 +126,16 @@ const Header = () => {
                             <div className={styles.div_menu}>
                                 <p onClick={() => setAbout(true)} className={styles.text_menu}>درباره ما</p>
                                 {showAbout &&
-                                    <div ref={refAbout} className={styles.menu_branch + ' ' + styles.opacity_menu}>
-                                        {aboutData.map(item => (
-                                            <Link to={item.path}>
-                                                <p onClick={() => setAbout(false)}>{item.label}</p>
-                                            </Link>
-                                        ))}
-                                    </div>}
+                                <div ref={refAbout} className={styles.menu_branch + ' ' + styles.opacity_menu}>
+                                    {aboutData.map(item => (
+                                        <Link to={item.path}>
+                                            <p onClick={() => setAbout(false)}>{item.label}</p>
+                                        </Link>
+                                    ))}
+                                </div>}
                             </div>
                         </div>
+
                         <Logo/>
                     </div>
                 </div>

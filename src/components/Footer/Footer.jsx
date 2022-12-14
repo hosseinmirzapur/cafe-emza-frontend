@@ -102,19 +102,19 @@ const Footer = () => {
 
             <div className={styles.bottom_footer}>
                 {options?.header?.branches[0] ? <div className={styles.container_icons}>
-                    {options?.header?.branches[0]?.whatsapp !== null ?
-                        <a href={options?.header?.branches[0]?.whatsapp} target="_blank">
-                            <img className={styles.icons} src={whatsapp} alt=""/>
-                        </a>
-                        : null}
+                    {/*{options?.header?.branches[0]?.whatsapp !== null ?*/}
+                    {/*    <a href={options?.header?.branches[0]?.whatsapp} target="_blank">*/}
+                    {/*        <img className={styles.icons} src={whatsapp} alt=""/>*/}
+                    {/*    </a>*/}
+                    {/*    : null}*/}
 
-                    {options?.header?.branches[0]?.instagram !== null ?
-                        <a href={options?.header?.branches[0]?.instagram} target="_blank">
+                    {options?.footer?.settings?.instagram !== null ?
+                        <a href={options?.footer?.settings?.instagram} target="_blank">
                             <img className={styles.icons} src={instagram} alt=""/>
                         </a>
                         : null}
-                    {options?.header?.branches[0]?.youtube !== null ?
-                        <a href={options?.header?.branches[0]?.youtube} target="_blank">
+                    {options?.footer?.settings?.youtube !== null ?
+                        <a href={options?.footer?.settings?.youtube} target="_blank">
                             <img className={styles.icons} src={youtube} alt=""/>
                         </a>
                         : null}
@@ -123,8 +123,8 @@ const Footer = () => {
                     {/*        <img className={styles.icons} src={iconTelegram} alt=""/>*/}
                     {/*    </a>*/}
                     {/*    : null}*/}
-                    {options?.header?.branches[0]?.twitter !== null ?
-                        <a href={options?.header?.branches[0]?.twitter} target="_blank">
+                    {options?.footer?.settings?.twitter !== null ?
+                        <a href={options?.footer?.settings?.twitter} target="_blank">
                             <img className={styles.icons} src={twitter} alt=""/>
                         </a>
                         : null}

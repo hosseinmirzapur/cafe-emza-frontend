@@ -14,8 +14,7 @@ const ContactUs = () => {
     const [loading, setLoading] = useState(true)
     const [data, setData] = useState({})
     const [branches, setBranches] = useState([])
-
-
+    const [settings, setSettings] = useState({})
 
     //function
     const initData = async () => {
@@ -30,6 +29,7 @@ const ContactUs = () => {
                     arrayBranche.push(obj)
                 })
                 await setBranches(arrayBranche)
+                await setSettings(res.data.CONTACT_US.data.settings)
                 setLoading(false)
             }
         } catch (err) {
@@ -63,7 +63,7 @@ const ContactUs = () => {
                         </div>
                     </div>
                     <ChangeTitlePage title='ارتباط با ما'/>
-                    <ButtonContactUs branches={branches}/>
+                    <ButtonContactUs branches={branches} settings={settings}/>
                 </>
             }
         </section>

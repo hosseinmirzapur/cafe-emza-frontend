@@ -31,3 +31,6 @@ root.render(
     </BrowserRouter>
     // </React.StrictMode>
 );
+// window.addEventListener('keydown', () => {
+//     console.clear()
+// })

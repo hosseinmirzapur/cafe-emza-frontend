@@ -7,7 +7,6 @@ import DatePicker from "react-datepicker2";
 import ErrorMessageDate from "../../components/ErrorMessage/ErrorMessageDate";
 import calenderImage from "../../assets/images/calender.svg";
 import {useState, useEffect} from 'react'
-import * as Yup from 'yup'
 import {Formik} from "formik";
 import {Radio, RadioGroup} from "@mantine/core";
 import Loading from "../../components/Loading/Loading";
@@ -74,9 +73,6 @@ const Payment = () => {
             const res = await getBasketData(obj)
             const res1 = await getDeliveryPrice()
             await setSendPrice(res1?.data?.delivery_prices[0]?.price)
-            // console.log("is : ", res1?.data?.delivery_prices[0]?.price)
-            // console.log("result is : ", res1)
-            // console.log(res)
             if (res.status === 200) {
                 await setAddress(res?.data?.addresses)
                 await setAddress_id(res?.data?.addresses[0]?.id.toString())
@@ -151,9 +147,7 @@ const Payment = () => {
                 >
                     {({
                           setFieldValue,
-                          handleChange,
                           handleSubmit,
-                          values,
                           errors,
                           setFieldTouched,
                           touched
@@ -180,17 +174,9 @@ const Payment = () => {
                                                     className='date_picker2'
                                                     placeholder='تاریخ تحویل'
                                                     isGregorian={false}
-                                                    // isUTC={true}
-                                                    // timePicker={false}
                                                     showTodayButton={false}
                                                     onChange={value => {
-                                                        // const  m = moment(value, 'jYYYY/jM/jD')
-                                                        // console.log(value.format('jYYYY/jM/jD'))
-                                                        // console.log(value.format('jYYYY/jM/jD HH:mm'))
-                                                        // console.log(value.local('ir').format('YYYY/MM/DD'))
-                                                        // setFieldValue('delivery_date', value.local('es').format('YYYY/M/D'))
                                                         setFieldValue('delivery_date', value.format('jYYYY/jM/jD HH:mm'))
-                                                        // setFieldValue('delivery_date', value.mo)
                                                     }}
                                                     onBlur={() => setFieldTouched('delivery_date')}
                                                 />
@@ -229,7 +215,7 @@ const Payment = () => {
                                         </button>
                                     </div>
                                 </div>
-                                <div className={styles.card}>
+                                <div className={styles.card} hidden={send_type !== 'ارسال با پیک'}>
                                     <p className={styles.title}>آدرس تحویل سفارش</p>
                                     {loading ? <Loading/> :
                                         // (address.length > 0 ?

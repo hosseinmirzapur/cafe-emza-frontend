@@ -4,9 +4,9 @@ import http from './httpService'
 import axios from "axios";
 
 export const getDataPage = (pageName, id) => {
-    // if (id) {
-    //     axios.defaults.headers.common["x-branch-id"] = id;
-    // }
+    if (id) {
+        axios.defaults.headers.common["x-branch-id"] = id;
+    }
     return http.get(`${config.base_url}/website-page?page=${pageName.toUpperCase()}`)
 }
 export const cv = (objectData) => {

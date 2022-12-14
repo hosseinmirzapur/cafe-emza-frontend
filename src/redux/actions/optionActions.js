@@ -3,7 +3,7 @@ import {getDataHeaderFooter} from "../../services/pagesServeice";
 export const setOptions = () => {
     return async dispatch => {
         const res = await getDataHeaderFooter()
-        await dispatch(setBranchId(res?.data?.header?.branches[0]?.id))
+        // await dispatch(setBranchId(res?.data?.header?.branches[0]?.id))
         await dispatch({type: 'INIT_OPTIONS', payload: res?.data})
     }
 }
