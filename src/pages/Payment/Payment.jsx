@@ -156,7 +156,7 @@ const Payment = () => {
                             {shopItems.length > 0 ? <CollectionShop carts={shopItems}/> : null}
                             {coffeeItems.length > 0 ?
                                 <CollectionCoffee carts={coffeeItems} send_type={(e) => setSend(e)}/> : null}
-                            <div className={styles.container_bottom}>
+                            <div className={send_type !== 'ارسال با پیک' ? 'd-flex text-center align-middle justify-content-center mb-5' : styles.container_bottom}>
                                 <div className={styles.card}>
                                     <p className={styles.title}>خلاصه صورت حساب شما</p>
                                     <div className={styles.row}>
@@ -169,22 +169,22 @@ const Payment = () => {
                                     </div>
                                     <div className={styles.row_date}>
                                         <div className={styles.left_row_data}>
-                                            <div className={styles.container_date_picker}>
-                                                <DatePicker
-                                                    className='date_picker2'
-                                                    placeholder='تاریخ تحویل'
-                                                    isGregorian={false}
-                                                    showTodayButton={false}
-                                                    onChange={value => {
-                                                        setFieldValue('delivery_date', value.format('jYYYY/jM/jD HH:mm'))
-                                                    }}
-                                                    onBlur={() => setFieldTouched('delivery_date')}
-                                                />
-                                                <ErrorMessageDate error={errors.delivery_date}
-                                                                  visible={touched.delivery_date}/>
-                                                <img src={calenderImage} className='calender_image'
-                                                     alt="image calender"/>
-                                            </div>
+                                            {/*<div className={styles.container_date_picker}>*/}
+                                            {/*    <DatePicker*/}
+                                            {/*        className='date_picker2'*/}
+                                            {/*        placeholder='تاریخ تحویل'*/}
+                                            {/*        isGregorian={false}*/}
+                                            {/*        showTodayButton={false}*/}
+                                            {/*        onChange={value => {*/}
+                                            {/*            setFieldValue('delivery_date', value.format('jYYYY/jM/jD HH:mm'))*/}
+                                            {/*        }}*/}
+                                            {/*        onBlur={() => setFieldTouched('delivery_date')}*/}
+                                            {/*    />*/}
+                                            {/*    <ErrorMessageDate error={errors.delivery_date}*/}
+                                            {/*                      visible={touched.delivery_date}/>*/}
+                                            {/*    <img src={calenderImage} className='calender_image'*/}
+                                            {/*         alt="image calender"/>*/}
+                                            {/*</div>*/}
                                         </div>
                                         <div className={styles.div_code}>
                                             <button disabled={disablePromotion} onClick={() => handlePromotion()}>
@@ -215,7 +215,7 @@ const Payment = () => {
                                         </button>
                                     </div>
                                 </div>
-                                <div className={styles.card} hidden={send_type !== 'ارسال با پیک'}>
+                                {send_type !== 'ارسال با پیک' ? null : <div className={styles.card}>
                                     <p className={styles.title}>آدرس تحویل سفارش</p>
                                     {loading ? <Loading/> :
                                         // (address.length > 0 ?
@@ -264,7 +264,8 @@ const Payment = () => {
                                         // : <div className='alert alert-primary alert_text'>آدرس برای شما ثبت نشده
                                         //     است.</div>)
                                     }
-                                </div>
+                                </div>}
+
                             </div>
                         </div>
 

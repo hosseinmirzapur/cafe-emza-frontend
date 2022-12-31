@@ -21,6 +21,7 @@ import NavigationEmza from "../../components/NavigationEmza/NavigationEmza";
 // import nextImage from "../../components/NavigationEmza/right.svg";
 // import preImage from "../../components/NavigationEmza/left.svg";
 import {goTopAbove} from "../../helper/functions";
+import {toast} from "react-toastify";
 
 SwiperCore.use([Navigation, Pagination])
 
@@ -40,33 +41,28 @@ const Emza = () => {
     //functions
     const initData = async () => {
         setLoading(true)
-        try {
-            const res = await getDataPage('store', branchId)
-                .then(async (res) => {
-                    if (res.status === 200) {
-                        if (res?.data?.STORE?.categories?.length === 0) {
-                            setProducts([])
-                        }
-                        await setCategories(res?.data?.STORE?.categories)
-                        await setSelectId(res?.data?.STORE?.categories[0]?.id)
-                        await setLoading(false)
-                        const selectedBranch = options?.header?.branches?.find(item => parseInt(item.id) === parseInt(branchId))
-                        await setBranch(selectedBranch)
+        await getDataPage('store', branchId)
+            .then(async (res) => {
+                if (res.status === 200) {
+                    if (res?.data?.STORE?.categories?.length === 0) {
+                        setProducts([])
                     }
+                    await setCategories(res?.data?.STORE?.categories)
+                    await setSelectId(res?.data?.STORE?.categories[0]?.id)
+                    const selectedBranch = options?.header?.branches?.find(item => parseInt(item.id) === parseInt(branchId))
+                    await setBranch(selectedBranch)
+                    await setLoading(false)
+                }
 
-                })
-
-
-        } catch (err) {
-            console.log(err)
-            setLoading(false)
-        }
+            })
+            .catch(() => {
+                setLoading(false)
+                toast.error('خطایی رخ داده است.')
+            })
     }
     const findProducts = async () => {
-        setLoading(true)
         const indexArray = categories.findIndex(item => item.id === select_id)
         await setProducts(categories[indexArray]?.products)
-        setLoading(false)
     }
 
 
@@ -114,13 +110,15 @@ const Emza = () => {
                             <NavigationEmza/>
                         </Swiper>
                     </div>
-                    {products?.length > 0 ?
+                    {products?.length > 0 && loading === false ?
                         <div className={styles.container_card}>
                             {products.map(product => (
                                 <EmzaCard product={product}/>
                             ))}
                         </div>
-                        : <div className={`alert alert-primary alert_text w-100 text-center ${styles.no_product}`}>محصولی یافت نشد</div>
+                        :
+                        <div className={`alert alert-primary alert_text w-100 text-center ${styles.no_product}`}>محصولی
+                            یافت نشد</div>
                     }
                 </div>
             </div>}
