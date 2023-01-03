@@ -55,10 +55,10 @@ const SelectFrame = () => {
                 try {
                     const res = await buy(obj)
                     if (res.status === 200) {
-                        toast.success(res.data.message)
                         await dispatch(setUser())
                         setIsDisable(false)
                         navigate('/emza')
+                        toast.success("از انتخابت خوشم اومد!")
                     }
 
                 } catch (err) {

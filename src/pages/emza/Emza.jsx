@@ -33,10 +33,6 @@ const Emza = () => {
     const [products, setProducts] = useState([])
     const [branch, setBranch] = useState({})
     const [select_id, setSelectId] = useState(-1)
-    // const swiper = useSwiper();
-    // const navigationNextRef = useRef(null)
-    // const navigationPrevRef = useRef(null)
-
 
     //functions
     const initData = async () => {

@@ -1,23 +1,19 @@
 import styles from './footer.module.scss'
-import whatsapp from './whatsapp.svg'
 import youtube from './youtube.svg'
 import instagram from './instagram.svg'
 import twitter from './twitter.svg'
+import linkedIn from './linkedIn.png'
 import background from './back_footer.jpg'
 import sib from './sib.svg'
 import iapps from './iapps.svg'
 import google from './google.svg'
 import bazzar from './bazar.svg'
-import iconTelegram from './../../assets/images/telegramIcon.svg'
 import s1 from './s1.svg'
 import s2 from './s2.svg'
-import {Link} from 'react-router-dom'
 import {footerData} from "../../helper/data";
 import Logo from "../Logo/Logo";
 import {useSelector} from "react-redux";
 import {useNavigate} from 'react-router-dom'
-import scrollToTop from "../../helper/ScrollToTop";
-import {scrollToTopFunction} from "../../helper/functions";
 import {toast} from "react-toastify";
 
 const Footer = () => {
@@ -116,6 +112,12 @@ const Footer = () => {
                     {options?.footer?.settings?.youtube !== null ?
                         <a href={options?.footer?.settings?.youtube} target="_blank">
                             <img className={styles.icons} src={youtube} alt=""/>
+                        </a>
+                        : null}
+
+                    {options?.footer?.settings?.linkedIn !== null ?
+                        <a href={options?.footer?.settings?.linkedIn} target="_blank">
+                            <img className={styles.icons} src={linkedIn} alt=""/>
                         </a>
                         : null}
                     {/*{options?.header?.branches[0]?.telegram !== null ?*/}

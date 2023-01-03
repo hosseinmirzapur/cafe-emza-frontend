@@ -79,9 +79,9 @@ const ProductDetails = () => {
                 const res = await buy(objBuy)
                 if (res.status === 200) {
                     await dispatch(setUser())
-                    toast.success(res.data.message)
                     setIsDisable(false)
                     navigate('/emza')
+                    toast.success("از انتخابت خوشم اومد!")
                 }
             } catch (err) {
                 setIsDisable(false)
