@@ -84,11 +84,21 @@ const BannerHome = ({images}) => {
                             } else {
                                 toast.warning('جهت سفارش در کافه امضا، ابتدا وارد حساب کاربری خود شوید')
                             }
-                        }}>امضا خود را سفارش دهید</button>
+                        }}>
+                            امضا خود را سفارش دهید
+                        </button>
                         {showMenu && <div ref={ref} className={styles.menu}>
                             {options?.header?.branches.map(item => (
-                                <p className={styles.subtitle}
-                                   onClick={() => handleBranches(item.id)}>شعبه {item?.name}</p>
+                                <p className={styles.subtitle} style={{
+                                    opacity: item?.active ? 1 : 0.5
+                                }}
+                                   onClick={() => {
+                                       if (item?.active) {
+                                           handleBranches(item.id)
+                                       } else {
+                                           toast.info('در حال حاضر این شعبه غیر فعال است.')
+                                       }
+                                   }}>{item?.name}</p>
                             ))}
                         </div>}
                     </div>

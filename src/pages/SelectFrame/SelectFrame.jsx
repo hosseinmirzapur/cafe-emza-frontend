@@ -1,7 +1,6 @@
 import styles from './SelectFrame.module.scss'
 import ChangeTitlePage from "../../helper/ChangeTitle";
 import pic_back from "../SelectSentence/pic_back.svg";
-import icon from './icon.svg'
 import Leaf from "../../components/Leaf/Leaf";
 import {Formik} from "formik";
 import * as Yup from 'yup'
@@ -29,7 +28,6 @@ const SelectFrame = () => {
     const navigate = useNavigate()
     const {state} = useLocation()
     const [checked, setChecked] = useState(false);
-    console.log(state)
     const [isDisable, setIsDisable] = useState(false)
     const [frame, setFrame] = useState('comment')
     const dispatch = useDispatch()

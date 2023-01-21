@@ -38,9 +38,8 @@ const ProductDetails = () => {
         try {
             const res = await getProduct(params.id)
             if (res.status === 200) {
-                // console.log(res.data.product)
                 await setProduct(res.data.product)
-                await setSize(res.data.product.sizes[0]?.size)
+                await setSize(res?.data?.product?.sizes[0]?.size)
                 setLoading(false)
             }
         } catch (err) {
@@ -130,6 +129,8 @@ const ProductDetails = () => {
                 return 'متوسط'
             case 'large':
                 return 'بزرگ'
+            default:
+                return ''
         }
     }
     const findPrice = async () => {
@@ -138,13 +139,14 @@ const ProductDetails = () => {
             await setPrice(obj.pivot.price)
         } else return 0
     }
-    useEffect(() => {
-        findPrice()
-    }, [size])
 
     useEffect(() => {
         initData()
     }, [])
+
+    useEffect(() => {
+        findPrice()
+    }, [size])
     return (
         <section className={styles.details_page}>
             <div className='inside'>
@@ -172,16 +174,18 @@ const ProductDetails = () => {
                                 </div>
                                 <p className={styles.content}>{product?.ingredient}</p>
                                 <p className={styles.size}>سایز:</p>
-                                <RadioGroup defaultValue={size} value={size}
-                                            onChange={setSize}
-                                            classNames={{
-                                                // label: 'label_radio',
-                                                label: styles.label_radio,
-                                                radioWrapper: 'radioWrapper',
-                                                radio: 'root_radio',
-                                                // radio:styles.mehdi
-                                            }
-                                            }
+                                <RadioGroup
+                                    defaultValue={size}
+                                    value={size}
+                                    onChange={setSize}
+                                    classNames={{
+                                        // label: 'label_radio',
+                                        label: styles.label_radio,
+                                        radioWrapper: 'radioWrapper',
+                                        radio: 'root_radio',
+                                        // radio:styles.mehdi
+                                    }
+                                    }
                                 >
 
                                     {product?.sizes[2] ? <Radio value="large" name='size'
@@ -203,9 +207,12 @@ const ProductDetails = () => {
                                 </RadioGroup>
                                 <div className={styles.center}>
                                     <div className={styles.container_btns}>
-                                        <button disabled={isDisable}
-                                                onClick={() => handleGoSentences()}
-                                                className={styles.btn_sentences}>انتخاب جمله
+                                        <button
+                                            disabled={isDisable}
+                                            onClick={() => handleGoSentences()}
+                                            className={styles.btn_sentences}
+                                            hidden={product?.printable != true}
+                                        >انتخاب جمله
                                         </button>
                                         <button disabled={isDisable} onClick={() => handleBuy()}
                                                 className={styles.btn_sentences}>
@@ -227,7 +234,8 @@ const ProductDetails = () => {
                                 <p className={styles.text}>{PN.convert(count)} عدد {product.name} {persianSize()}</p>
                             </div>
                             <div className={styles.container_image}>
-                                <img onDragStart={e=>preventDragHandler(e)} className={styles.img} src={product.image} alt=""/>
+                                <img onDragStart={e => preventDragHandler(e)} className={styles.img} src={product.image}
+                                     alt=""/>
                             </div>
                         </div>
                     </div>
