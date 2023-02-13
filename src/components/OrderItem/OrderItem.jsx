@@ -4,6 +4,7 @@ import basket_icon from './basket.svg'
 import {useNavigate} from 'react-router-dom'
 import {useState, useEffect} from 'react'
 import {findSize} from "../../helper/functions";
+import {Badge} from "reactstrap";
 
 const OrderItem = ({order}) => {
     // console.log(order)
@@ -27,6 +28,15 @@ const OrderItem = ({order}) => {
     }, [])
     return (
         <div className={styles.order_item} onClick={() => navigate('/dashboard/detail_order', {state: {order}})}>
+            <div className={'text-center align-items-center justify-content-center mb-3'}>
+                <Badge color={order?.active ? 'danger': 'success'} pill style={{
+                    fontSize: "small"
+                }}>
+                    {
+                        order?.active ? 'در حال آماده سازی' : 'تحویل داده شده'
+                    }
+                </Badge>
+            </div>
             <div className={styles.top}>
                 <div className={styles.section_date}>
                     <p>{order.created_at.split(" ")[0]}</p>

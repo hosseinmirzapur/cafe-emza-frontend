@@ -20,25 +20,32 @@ const Header = () => {
     //Variables
     const navigate = useNavigate()
     const login = useSelector(state => state.login)
-    const [showBranches, setBranches] = useState(false)
+    const [showBranches1, setBranches1] = useState(false)
+    const [showBranches2, setBranches2] = useState(false)
     const [showAbout, setAbout] = useState(false)
     const [showMarket, setMarket] = useState(false)
-    const refBranches = useClickOutside(() => setBranches(false));
+    const refBranches1 = useClickOutside(() => setBranches1(false));
+    const refBranches2 = useClickOutside(() => setBranches2(false));
     const refAbout = useClickOutside(() => setAbout(false));
     const user = useSelector(state => state.user)
     const options = useSelector(state => state.options)
     const dispatch = useDispatch()
     // const [notifications, setNotifications] = useState([...user?.notifications])
-    const countNotification = user.notifications?.filter(item => item.active == 1)
+    const countNotification = user.notifications?.filter(item => parseInt(item.active) === 1)
 
     const [isDisable, setIsDisable] = useState(true)
 
     //functions
-    const handleBranches = async (id) => {
-        await localStorage.setItem("branch_id", id)
+    const handleBranches = async (id, type) => {
+        localStorage.setItem("branch_id", id)
         await dispatch(setBranchId(id))
-        setBranches(false)
-        navigate('/emza')
+        setBranches1(false)
+        setBranches2(false)
+        if (type === 'cafe') navigate('/emza')
+        else {
+            setBranches2(false)
+            setMarket(true)
+        }
     }
     const fullname = () => {
         return user.firstname ? `${user.firstname} ${user.lastname}` : 'در حال بارگذاری...'
@@ -93,16 +100,16 @@ const Header = () => {
                                 </Link>
                             </div>
                             <div className={styles.div_menu}>
-                                <p onClick={() => setBranches(true)} className={styles.text_menu}>کافه امضا</p>
-                                {showBranches &&
-                                <div ref={refBranches} className={styles.menu_branch + ' ' + styles.opacity_menu}>
+                                <p onClick={() => setBranches1(!showBranches1)} className={styles.text_menu}>کافه امضا</p>
+                                {showBranches1 &&
+                                <div ref={refBranches1} className={styles.menu_branch + ' ' + styles.opacity_menu}>
                                     {options?.header?.branches.map((item, index) => (
                                         <p className={item.active ? '' : 'opacity-25'} key={index} onClick={async () => {
                                             if (login) {
                                                 if (item.active) {
-                                                    await handleBranches(item?.id)
+                                                    await handleBranches(item?.id, 'cafe')
                                                 } else {
-                                                    toast.info('در حال حاضر این شعبه غیر فعال است.')
+                                                    toast.info(item?.excuse || 'در حال حاضر این شعبه غیر فعال است.')
                                                 }
                                             } else {
                                                 toast.warning('برای مشاهده محصولات ابتده وارد حساب کاربری خود شوید')
@@ -112,7 +119,23 @@ const Header = () => {
                                 </div>}
                             </div>
                             <div className={styles.div_menu}>
-                                <p onClick={() => setMarket(true)} className={styles.text_menu}>فروشگاه آنلاین</p>
+                                <p onClick={() => setBranches2(!showBranches2)} className={styles.text_menu}>فروشگاه آنلاین</p>
+                                {showBranches2 &&
+                                <div ref={refBranches2} className={styles.menu_branch + ' ' + styles.opacity_menu}>
+                                    {options?.header?.store_branches.map((item, index) => (
+                                        <p className={item.active ? '' : 'opacity-25'} key={index} onClick={async () => {
+                                            if (login) {
+                                                if (item.active) {
+                                                    await handleBranches(item?.id, 'store')
+                                                } else {
+                                                    toast.info(item?.excuse || 'در حال حاضر این شعبه غیر فعال است.')
+                                                }
+                                            } else {
+                                                toast.warning('برای مشاهده محصولات ابتده وارد حساب کاربری خود شوید')
+                                            }
+                                        }}>{item?.name}</p>
+                                    ))}
+                                </div>}
                                 {showMarket && <MarketMenu setMe={(e) => setMarket(e)}/>}
                             </div>
                             <div className={styles.div_menu}>

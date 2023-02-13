@@ -9,7 +9,7 @@ export const setOptions = () => {
 }
 export const setBranchId = (id) => {
     return async dispatch => {
-        await localStorage.setItem("branch_id", id)
+        localStorage.setItem("branch_id", id)
         await dispatch({type: 'SET_BRANCH_ID', payload: id})
     }
 }

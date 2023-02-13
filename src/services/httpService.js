@@ -11,6 +11,11 @@ axios.interceptors.request.use((req) => {
 }, null);
 axios.interceptors.response.use(null, error => {
     const expectedError = error.response && error.response.status >= 400 && error.response.status < 500;
+    if (error.response.status === 401) {
+        localStorage.clear()
+        sessionStorage.clear()
+        window.location.reload()
+    }
     if (!expectedError) {
         toast.error(error.response, {
             position: 'top-right',

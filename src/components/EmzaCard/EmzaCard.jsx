@@ -5,18 +5,32 @@ import cup from './cup.png'
 import {useSelector} from "react-redux";
 import {toast} from "react-toastify";
 import {preventDragHandler} from "../../helper/functions";
+import {Fragment} from "react";
+import {Badge} from "reactstrap";
 
 const EmzaCard = ({product}) => {
     const navigate = useNavigate()
     const login = useSelector(state => state.login)
     return (
         <div key={product.id} className={styles.card}
-             onClick={() => navigate(`/product_details/${product.id}`, {state: product})}>
+             onClick={() => {
+                 if (product.is_available) {
+                     navigate(`/product_details/${product.id}`, {state: product})
+                 } else {
+                     toast.info('این محصول فعلا موجود نیست')
+                 }
+             }}>
             <div className={styles.container_image}>
-                <img onDragStart={e => preventDragHandler(e)} src={product.image} className={styles.cup}
+                <img onDragStart={e => preventDragHandler(e)} src={product.image}
+                     className={product.is_available ? styles.cup : styles.unavailable_cup}
                      onContextMenu={() => {
                          return false
                      }} alt=""/>
+                {!product.is_available && <Fragment>
+                    <Badge color={'danger'} style={{
+                        top: 10,
+                    }} pill className={'position-absolute'}>نا موجود</Badge>
+                </Fragment>}
             </div>
             <div className={styles.container_top}>
                 <div className={styles.left_top}>
@@ -27,7 +41,7 @@ const EmzaCard = ({product}) => {
             </div>
             <p className={styles.combine}>{product.ingredient}</p>
             <div className={styles.button_section}>
-                <button onClick={() => {
+                <button disabled={!product.is_available} onClick={() => {
                     if (login) {
                         navigate(`/product_details/${product.id}`, {state: product})
                     } else {

@@ -107,10 +107,15 @@ const Emza = () => {
                         </Swiper>
                     </div>
                     {products?.length > 0 && loading === false ?
-                        <div className={styles.container_card}>
-                            {products.map(product => (
-                                <EmzaCard product={product}/>
-                            ))}
+                        <div style={{
+                            direction: 'rtl'
+                        }} className={`${styles.container_card} position_relative`}>
+                            {products.map(product => {
+                                    return (
+                                        <EmzaCard product={product}/>
+                                    )
+                                }
+                            )}
                         </div>
                         :
                         <div className={`alert alert-primary alert_text w-100 text-center ${styles.no_product}`}>محصولی

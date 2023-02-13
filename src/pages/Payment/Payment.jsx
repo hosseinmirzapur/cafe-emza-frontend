@@ -25,8 +25,8 @@ import {useNavigate} from 'react-router-dom'
 const Payment = () => {
     //variable
     const [code, setCode] = useState('')
-    const [address, setAddress] = useState([])
-    const [address_id, setAddress_id] = useState(address[0]?.id.toString())
+    const [addresses, setAddresses] = useState([])
+    const [address_id, setAddress_id] = useState('')
     const [loading, setLoading] = useState(true)
     const [objAddress, setObjAddress] = useState({})
     const [editModal, setEditModal] = useState(false)
@@ -48,7 +48,7 @@ const Payment = () => {
         try {
             const res = await applyPromotion(code)
             if (res.status === 200) {
-                await setAddress(res?.data?.addresses)
+                await setAddresses(res?.data?.addresses)
                 await setAddress_id(res?.data?.addresses[0]?.id.toString())
                 await setSendPrice(res?.data?.send_price)
                 await setTotalPrice(res?.data?.total_price)
@@ -72,14 +72,12 @@ const Payment = () => {
         try {
             const res = await getBasketData(obj)
             const res1 = await getDeliveryPrice()
-            await setSendPrice(res1?.data?.delivery_prices[0]?.price)
+            await setSendPrice(res1?.data?.delivery_price)
             if (res.status === 200) {
-                await setAddress(res?.data?.addresses)
+                await setAddresses(res?.data?.addresses)
                 await setAddress_id(res?.data?.addresses[0]?.id.toString())
-                // await setSendPrice(res?.data?.send_price)
                 await setTotalPrice(res?.data?.total_price)
                 const {cart_items} = res.data
-                // console.log(cart_items)
                 if (cart_items.length < 1) {
                     navigate('/cart')
                 }
@@ -105,7 +103,7 @@ const Payment = () => {
         setEditModal(true)
     }
     const handleBuy = async (values) => {
-        const obj = {...values, address_id, description: '', promotion_code: '', send_type}
+        const obj = {...values, address_id, description: '', promotion_code: code, send_type}
         // console.log("object is : ", obj)
         setLoadingPage(true)
         try {
@@ -156,7 +154,8 @@ const Payment = () => {
                             {shopItems.length > 0 ? <CollectionShop carts={shopItems}/> : null}
                             {coffeeItems.length > 0 ?
                                 <CollectionCoffee carts={coffeeItems} send_type={(e) => setSend(e)}/> : null}
-                            <div className={send_type !== 'ارسال با پیک' ? 'd-flex text-center align-middle justify-content-center mb-5' : styles.container_bottom}>
+                            <div
+                                className={send_type !== 'ارسال با پیک' ? 'd-flex text-center align-middle justify-content-center mb-5' : styles.container_bottom}>
                                 <div className={styles.card}>
                                     <p className={styles.title}>خلاصه صورت حساب شما</p>
                                     <div className={styles.row}>
@@ -218,9 +217,10 @@ const Payment = () => {
                                 {send_type !== 'ارسال با پیک' ? null : <div className={styles.card}>
                                     <p className={styles.title}>آدرس تحویل سفارش</p>
                                     {loading ? <Loading/> :
-                                        // (address.length > 0 ?
+                                        // (addresses.length > 0 ?
                                         <div className={styles.container_options}>
-                                            <RadioGroup value={address_id} onChange={setAddress_id} defaultValue="post"
+                                            <RadioGroup value={''} onChange={setAddress_id}
+                                                        defaultValue="post"
                                                         classNames={{
                                                             label: styles.label,
                                                             radioWrapper: styles.radio_wrapper2,
@@ -229,12 +229,13 @@ const Payment = () => {
                                                         }
                                             >
                                                 {
-                                                    address.map((item, index) => (
-                                                        <Radio key={index} value={item.id.toString()}
+                                                    addresses.map((item) => (
+                                                        <Radio key={item.id} value={item.id.toString()}
                                                                label={
                                                                    <div className={styles.radio}>
                                                                        <div className={styles.top_address}>
-                                                                           <div className={styles.right_top_address}>
+                                                                           <div
+                                                                               className={styles.right_top_address}>
                                                                                <img src={locationIcon} alt=""/>
                                                                                <p>{item?.location}</p>
                                                                            </div>
