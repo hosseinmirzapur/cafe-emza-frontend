@@ -168,16 +168,21 @@ const ProductMarket = () => {
 
                                     {filterOption.map((item) => (
                                         <div key={item.id} className={styles.option}>
-                                            <img onDragStart={e => preventDragHandler(e)} src={item.img} width={43} alt=""/>
+                                            <img onDragStart={e => preventDragHandler(e)} src={item.img} width={43}
+                                                 alt=""/>
                                             <p className={styles.name_option}>{item.title}</p>
                                             <p className={styles.description}>({item.description})</p>
                                         </div>
                                     ))}
                                 </div>
                                 <div className={styles.container_bottom}>
-                                    <button disabled={isDisable}
-                                            onClick={() => handleGoSentences()}
-                                            className={styles.btn_sentences_2}>انتخاب جمله
+                                    <button
+                                        disabled={isDisable}
+                                        onClick={() => handleGoSentences()}
+                                        className={styles.btn_sentences_2}
+                                        hidden={!product.printable}
+                                    >
+                                        انتخاب جمله
                                     </button>
                                     <button disabled={isDisable} onClick={() => handleBuy()} className={styles.btn}
                                             type="submit">

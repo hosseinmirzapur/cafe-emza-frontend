@@ -256,7 +256,7 @@
 .btn_add_address {
   height: 40px;
   width: 162px;
-  background: #F9F9F9;
+  background: linear-gradient(77.63deg, #EEAF16 26.51%, rgba(247, 195, 24, 0.85) 50.43%, #EEAF16 73.07%);;
   border-radius: 16px;
   font-style: normal;
   font-weight: 500;
@@ -268,7 +268,7 @@
 }
 
 .btn_add_address:hover {
-  color: var(--black);
+  color: #F9F9F9;;
   background: linear-gradient(77.63deg, #EEAF16 26.51%, rgba(247, 195, 24, 0.85) 50.43%, #EEAF16 73.07%);
 }
 

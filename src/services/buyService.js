@@ -3,11 +3,15 @@ import http from './httpService'
 
 const additionalConfig = {
     headers: {
-        'x-branch-id': localStorage.getItem('branch_id')
+        "x-branch-id": localStorage.getItem("branch_id")
     }
 }
-export const buy = (objBuy) => {
-    return http.post(`${config.base_url}/cart-item`, objBuy, additionalConfig)
+export const buy = (objBuy, branchId) => {
+    return http.post(`${config.base_url}/cart-item`, objBuy, {
+        headers: {
+            "x-branch-id": branchId
+        }
+    })
 }
 
 export const getBasketData = (obj) => {

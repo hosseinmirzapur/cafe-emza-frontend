@@ -17,7 +17,7 @@ import handleErrors from "../../helper/handleErrors";
 import {buy, editOrder} from "../../services/buyService";
 import {toast} from "react-toastify";
 import {setUser} from "../../redux/actions/loginActions";
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {goTopAbove} from "../../helper/functions";
 
 const validationSchema = Yup.object().shape({
@@ -31,6 +31,10 @@ const SelectFrame = () => {
     const [isDisable, setIsDisable] = useState(false)
     const [frame, setFrame] = useState('comment')
     const dispatch = useDispatch()
+    // const options = useSelector(state => state)
+    const branchId = localStorage.getItem('branch_id')
+    // console.log("branch_id: " + branchId)
+    // console.log("branch_id from redux: " + options.branchId)
     const handleBuy = async (values) => {
         const obj = {...state.obj, ...values, frame}
         setIsDisable(true)
@@ -51,7 +55,7 @@ const SelectFrame = () => {
                 }
             } else {
                 try {
-                    const res = await buy(obj)
+                    const res = await buy(obj, branchId)
                     if (res.status === 200) {
                         await dispatch(setUser())
                         setIsDisable(false)

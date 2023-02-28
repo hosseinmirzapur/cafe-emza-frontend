@@ -38,6 +38,7 @@ const Payment = () => {
     const [loadingPage, setLoadingPage] = useState(false)
     const [shopItems, setShopItems] = useState([])
     const [coffeeItems, setCoffeeItems] = useState([])
+    const [checked, setChecked] = useState(false)
 
     const navigate = useNavigate()
 
@@ -74,9 +75,10 @@ const Payment = () => {
             const res1 = await getDeliveryPrice()
             await setSendPrice(res1?.data?.delivery_price)
             if (res.status === 200) {
-                await setAddresses(res?.data?.addresses)
-                await setAddress_id(res?.data?.addresses[0]?.id.toString())
-                await setTotalPrice(res?.data?.total_price)
+                console.log(res?.data?.addresses[0]?.id)
+                setAddresses(res?.data?.addresses)
+                setAddress_id(res?.data?.addresses[0]?.id)
+                setTotalPrice(res?.data?.total_price)
                 const {cart_items} = res.data
                 if (cart_items.length < 1) {
                     navigate('/cart')
@@ -136,10 +138,17 @@ const Payment = () => {
 
     return (
         <section className={styles.payment_page}>
-            <EditAddressModal runFunction={() => initData()} address={objAddress} closeModal={() => setEditModal(false)}
-                              showDialog={editModal}/>
-            <AddAddressModal runFunction={() => initData()} showDialog={showAddAddress}
-                             closeModal={() => setShowAddAddress(false)}/>
+            <EditAddressModal
+                runFunction={() => initData()}
+                address={objAddress}
+                closeModal={() => setEditModal(false)}
+                showDialog={editModal}
+            />
+            <AddAddressModal
+                runFunction={() => initData()}
+                showDialog={showAddAddress}
+                closeModal={() => setShowAddAddress(false)}
+            />
             <div className='inside'>
                 <Formik onSubmit={values => handleBuy(values)} initialValues={{delivery_date: ''}}
                 >
@@ -167,23 +176,23 @@ const Payment = () => {
                                         <p className={styles.label_text}>هزینه ارسال:</p>
                                     </div>
                                     <div className={styles.row_date}>
-                                        <div className={styles.left_row_data}>
-                                            {/*<div className={styles.container_date_picker}>*/}
-                                            {/*    <DatePicker*/}
-                                            {/*        className='date_picker2'*/}
-                                            {/*        placeholder='تاریخ تحویل'*/}
-                                            {/*        isGregorian={false}*/}
-                                            {/*        showTodayButton={false}*/}
-                                            {/*        onChange={value => {*/}
-                                            {/*            setFieldValue('delivery_date', value.format('jYYYY/jM/jD HH:mm'))*/}
-                                            {/*        }}*/}
-                                            {/*        onBlur={() => setFieldTouched('delivery_date')}*/}
-                                            {/*    />*/}
-                                            {/*    <ErrorMessageDate error={errors.delivery_date}*/}
-                                            {/*                      visible={touched.delivery_date}/>*/}
-                                            {/*    <img src={calenderImage} className='calender_image'*/}
-                                            {/*         alt="image calender"/>*/}
-                                            {/*</div>*/}
+                                        <div className={styles.left_row_data} hidden={shopItems.length === 0}>
+                                            <div className={styles.container_date_picker}>
+                                                <DatePicker
+                                                    className='date_picker2'
+                                                    placeholder='تاریخ تحویل'
+                                                    isGregorian={false}
+                                                    showTodayButton={false}
+                                                    onChange={value => {
+                                                        setFieldValue('delivery_date', value.format('jYYYY/jM/jD HH:mm'))
+                                                    }}
+                                                    onBlur={() => setFieldTouched('delivery_date')}
+                                                />
+                                                <ErrorMessageDate error={errors.delivery_date}
+                                                                  visible={touched.delivery_date}/>
+                                                <img src={calenderImage} className='calender_image'
+                                                     alt="image calender"/>
+                                            </div>
                                         </div>
                                         <div className={styles.div_code}>
                                             <button disabled={disablePromotion} onClick={() => handlePromotion()}>
@@ -219,38 +228,49 @@ const Payment = () => {
                                     {loading ? <Loading/> :
                                         // (addresses.length > 0 ?
                                         <div className={styles.container_options}>
-                                            <RadioGroup value={''} onChange={setAddress_id}
-                                                        defaultValue="post"
-                                                        classNames={{
-                                                            label: styles.label,
-                                                            radioWrapper: styles.radio_wrapper2,
-                                                            radio: 'root_radio',
-                                                        }
-                                                        }
+                                            <RadioGroup
+                                                // value={''}
+                                                // defaultValue={'post'}
+                                                onChange={setAddress_id}
+                                                classNames={{
+                                                    label: styles.label,
+                                                    radioWrapper: styles.radio_wrapper2,
+                                                    radio: 'root_radio'
+                                                }}
                                             >
                                                 {
                                                     addresses.map((item) => (
-                                                        <Radio key={item.id} value={item.id.toString()}
-                                                               label={
-                                                                   <div className={styles.radio}>
-                                                                       <div className={styles.top_address}>
-                                                                           <div
-                                                                               className={styles.right_top_address}>
-                                                                               <img src={locationIcon} alt=""/>
-                                                                               <p>{item?.location}</p>
-                                                                           </div>
-                                                                           <img className={styles.edit_image}
-                                                                                onClick={() => {
-                                                                                    handleEdit(item)
-                                                                                }} src={editIcon} alt=""/>
-
-                                                                       </div>
-                                                                       <div className={styles.container_receiver}>
-                                                                           <img src={userIcon} alt=""/>
-                                                                           <p>{item?.receiver_name}</p>
-                                                                       </div>
-
-                                                                   </div>}
+                                                        <Radio
+                                                            key={item.id}
+                                                            value={item.id.toString()}
+                                                            checked={checked}
+                                                            onClick={e => {
+                                                                setChecked(e.currentTarget.checked)
+                                                            }}
+                                                            label={
+                                                                <div className={styles.radio}>
+                                                                    <div className={styles.top_address}>
+                                                                        <div
+                                                                            className={styles.right_top_address}
+                                                                        >
+                                                                            <img src={locationIcon} alt=""/>
+                                                                            <p>{item?.location}</p>
+                                                                        </div>
+                                                                        <img
+                                                                            className={styles.edit_image}
+                                                                            onClick={() => {
+                                                                                handleEdit(item)
+                                                                            }}
+                                                                            src={editIcon}
+                                                                            alt=""
+                                                                        />
+                                                                    </div>
+                                                                    <div className={styles.container_receiver}>
+                                                                        <img src={userIcon} alt=""/>
+                                                                        <p>{item?.receiver_name}</p>
+                                                                    </div>
+                                                                </div>
+                                                            }
                                                         />
                                                     ))
                                                 }
