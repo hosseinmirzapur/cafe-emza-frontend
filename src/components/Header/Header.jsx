@@ -38,7 +38,7 @@ const Header = () => {
     //functions
     const handleBranches = async (id, type) => {
         localStorage.setItem("branch_id", id)
-        await dispatch(setBranchId(id))
+        dispatch(setBranchId(id))
         setBranches1(false)
         setBranches2(false)
         if (type === 'cafe') navigate('/emza')

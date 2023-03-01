@@ -75,7 +75,8 @@ const ProductDetails = () => {
             }
             setIsDisable(true)
             try {
-                const res = await buy(objBuy)
+                const branchId = localStorage.getItem('branch_id')
+                const res = await buy(objBuy, branchId)
                 if (res.status === 200) {
                     await dispatch(setUser())
                     setIsDisable(false)

@@ -93,7 +93,7 @@
 }
 
 .div_code {
-  width: 50%;
+  width: 100%;
   height: 40px;
   background: #FFFFFF;
   border-radius: 16px;
@@ -178,6 +178,7 @@
   padding: 20px 28px;
   background: var(--emzalight);
   border-radius: 16px;
+  //width: 45%;
 }
 
 .inside {
@@ -211,11 +212,12 @@
 }
 
 .container_btn {
-  //width: 100%;
+  width: 100%;
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
   margin-top: 26px;
+  position: relative;
 }
 
 .label_text {
@@ -268,7 +270,7 @@
 }
 
 .btn_add_address:hover {
-  color: #F9F9F9;;
+  color: #F9F9F9;
   background: linear-gradient(77.63deg, #EEAF16 26.51%, rgba(247, 195, 24, 0.85) 50.43%, #EEAF16 73.07%);
 }
 

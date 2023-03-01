@@ -226,64 +226,64 @@ const Payment = () => {
                                 {send_type !== 'ارسال با پیک' ? null : <div className={styles.card}>
                                     <p className={styles.title}>آدرس تحویل سفارش</p>
                                     {loading ? <Loading/> :
-                                        // (addresses.length > 0 ?
-                                        <div className={styles.container_options}>
-                                            <RadioGroup
-                                                // value={''}
-                                                // defaultValue={'post'}
-                                                onChange={setAddress_id}
-                                                classNames={{
-                                                    label: styles.label,
-                                                    radioWrapper: styles.radio_wrapper2,
-                                                    radio: 'root_radio'
-                                                }}
-                                            >
-                                                {
-                                                    addresses.map((item) => (
-                                                        <Radio
-                                                            key={item.id}
-                                                            value={item.id.toString()}
-                                                            checked={checked}
-                                                            onClick={e => {
-                                                                setChecked(e.currentTarget.checked)
-                                                            }}
-                                                            label={
-                                                                <div className={styles.radio}>
-                                                                    <div className={styles.top_address}>
-                                                                        <div
-                                                                            className={styles.right_top_address}
-                                                                        >
-                                                                            <img src={locationIcon} alt=""/>
-                                                                            <p>{item?.location}</p>
+                                        (addresses.length > 0 ?
+                                            <div className={styles.container_options}>
+                                                <RadioGroup
+                                                    // value={''}
+                                                    // defaultValue={'post'}
+                                                    onChange={setAddress_id}
+                                                    classNames={{
+                                                        label: styles.label,
+                                                        radioWrapper: styles.radio_wrapper2,
+                                                        radio: 'root_radio'
+                                                    }}
+                                                >
+                                                    {
+                                                        addresses.map((item) => (
+                                                            <Radio
+                                                                key={item.id}
+                                                                value={item.id.toString()}
+                                                                checked={checked}
+                                                                onClick={e => {
+                                                                    setChecked(e.currentTarget.checked)
+                                                                }}
+                                                                label={
+                                                                    <div className={styles.radio}>
+                                                                        <div className={styles.top_address}>
+                                                                            <div
+                                                                                className={styles.right_top_address}
+                                                                            >
+                                                                                <img src={locationIcon} alt=""/>
+                                                                                <p>{item?.location}</p>
+                                                                            </div>
+                                                                            <img
+                                                                                className={styles.edit_image}
+                                                                                onClick={() => {
+                                                                                    handleEdit(item)
+                                                                                }}
+                                                                                src={editIcon}
+                                                                                alt=""
+                                                                            />
                                                                         </div>
-                                                                        <img
-                                                                            className={styles.edit_image}
-                                                                            onClick={() => {
-                                                                                handleEdit(item)
-                                                                            }}
-                                                                            src={editIcon}
-                                                                            alt=""
-                                                                        />
+                                                                        <div className={styles.container_receiver}>
+                                                                            <img src={userIcon} alt=""/>
+                                                                            <p>{item?.receiver_name}</p>
+                                                                        </div>
                                                                     </div>
-                                                                    <div className={styles.container_receiver}>
-                                                                        <img src={userIcon} alt=""/>
-                                                                        <p>{item?.receiver_name}</p>
-                                                                    </div>
-                                                                </div>
-                                                            }
-                                                        />
-                                                    ))
-                                                }
+                                                                }
+                                                            />
+                                                        ))
+                                                    }
 
-                                            </RadioGroup>
-                                            <div className={styles.container_add_address}>
-                                                <button onClick={() => setShowAddAddress(true)}
-                                                        className={styles.btn_add_address}>افزودن آدرس جدید
-                                                </button>
+                                                </RadioGroup>
+                                                <div className={styles.container_add_address}>
+                                                    <button onClick={() => setShowAddAddress(true)}
+                                                            className={styles.btn_add_address}>افزودن آدرس جدید
+                                                    </button>
+                                                </div>
                                             </div>
-                                        </div>
-                                        // : <div className='alert alert-primary alert_text'>آدرس برای شما ثبت نشده
-                                        //     است.</div>)
+                                            : <div className='alert alert-primary alert_text'>آدرس برای شما ثبت نشده
+                                                است.</div>)
                                     }
                                 </div>}
 
