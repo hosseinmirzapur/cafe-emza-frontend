@@ -18,6 +18,7 @@ import {getProduct, rateProduct} from "../../services/productService";
 import Loading from "../../components/Loading/Loading";
 import {useDispatch, useSelector} from "react-redux";
 import {setUser} from "../../redux/actions/loginActions";
+// import SizeRadio from "./SizeRadio";
 
 const ProductDetails = () => {
     const params = useParams()
@@ -134,6 +135,32 @@ const ProductDetails = () => {
                 return ''
         }
     }
+
+    const givePersianSize = (selectedSize) => {
+        switch (selectedSize) {
+            case 'small':
+                return 'کوچک'
+            case 'medium':
+                return 'متوسط'
+            case 'large':
+                return 'بزرگ'
+            default:
+                return ''
+        }
+    }
+
+    const giveMeIcon = (selectedSize) => {
+        switch (selectedSize) {
+            case 'small':
+                return small
+            case 'medium':
+                return large
+            case 'large':
+                return x_large
+            default:
+                return ''
+        }
+    }
     const findPrice = async () => {
         const obj = product.sizes.find(item => item.size === size)
         if (obj) {
@@ -180,28 +207,36 @@ const ProductDetails = () => {
                                     value={size}
                                     onChange={setSize}
                                     classNames={{
-                                        // label: 'label_radio',
                                         label: styles.label_radio,
                                         radioWrapper: 'radioWrapper',
                                         radio: 'root_radio',
-                                        // radio:styles.mehdi
                                     }
                                     }
                                 >
 
-                                    {product?.sizes[2] ? <Radio value="large" name='size'
-                                                                label={<div className={styles.item_size}><p>بزرگ</p><img
+                                    {/*{*/}
+                                    {/*    product.sizes.map(item => (*/}
+                                    {/*        <SizeRadio*/}
+                                    {/*            value={item?.size}*/}
+                                    {/*            label={givePersianSize(item?.size)}*/}
+                                    {/*            icon={giveMeIcon(item?.size)}*/}
+                                    {/*        />*/}
+                                    {/*    ))*/}
+                                    {/*}*/}
+
+                                    {product?.sizes[2] ? <Radio value={product?.sizes[2]?.size} name='size'
+                                                                label={<div className={styles.item_size}><p>{givePersianSize(product?.sizes[2]?.size)}</p><img
                                                                     alt='' className={styles.icons}
                                                                     src={x_large}/>
                                                                 </div>}/> : null}
-                                    {product?.sizes[1] ? <Radio value="medium" name='size'
-                                                                label={<div className={styles.item_size}><p>متوسط</p>
+                                    {product?.sizes[1] ? <Radio value={product?.sizes[1]?.size} name='size'
+                                                                label={<div className={styles.item_size}><p>{givePersianSize(product?.sizes[1]?.size)}</p>
                                                                     <img
                                                                         alt='' className={styles.icons}
                                                                         src={large}/>
                                                                 </div>}/> : null}
-                                    {product?.sizes[0] ? <Radio value="small" name='size'
-                                                                label={<div className={styles.item_size}><p>کوچک</p><img
+                                    {product?.sizes[0] ? <Radio value={product?.sizes[0]?.size} name='size'
+                                                                label={<div className={styles.item_size}><p>{givePersianSize(product?.sizes[0]?.size)}</p><img
                                                                     alt='' className={styles.icons}
                                                                     src={small}/>
                                                                 </div>}/> : null}
